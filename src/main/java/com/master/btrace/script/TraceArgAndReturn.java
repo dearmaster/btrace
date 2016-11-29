@@ -13,7 +13,7 @@ import static com.sun.btrace.BTraceUtils.*;
     public static void traceHelloWorldExecute(@Self Object instance, int interval, @Return boolean result) {
         println("call HelloWorld.execute");
         println(strcat("sleepTime is:",str(interval)));
-        println(strcat("sleepTotalTime is:",str(get(field("HelloWorld","sleepTotal"),instance))));
+        println(strcat("sleepTotalTime is:",str(get(field("com.master.btrace.server.HelloWorld","sleepTotal"),instance))));
         println(strcat("return value is:",str(result)));
     }
 
