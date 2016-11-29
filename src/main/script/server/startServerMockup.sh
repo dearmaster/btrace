@@ -1,6 +1,6 @@
 #!/bin/bash
 
-. /opt/dear/.profile
+.  ~/.profile
 
 usage()
 {
@@ -31,6 +31,10 @@ done
 
 process()
 {
+
+	echo JAVA_HOME: $JAVA_HOME
+	echo CLASSPATH: $CLASSPATH
+
 	if [[ -z $javaFiles ]]; then
 		error No java files specified.
 		exit 1

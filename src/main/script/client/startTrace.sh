@@ -1,6 +1,6 @@
 #!/bin/bash
 
-. /opt/dear/.profile
+. ~/.profile
 
 usage()
 {
