@@ -43,6 +43,7 @@ process()
 
 	initializedFlag=false
 
+
 	for javaFile in ${arr[@]} 
 	do 
 		exeWithTimestampLog cp $javaFile .
@@ -60,13 +61,19 @@ process()
 			javaFileInWorkSpace=`echo ${javaFile##*/}`
 			#echo checking $javaFileInWorkSpace ...
 			mainClassFile=`cat $javaFileInWorkSpace | grep -v "^$" | grep "^package " | awk '{print $2}' | cut -d \; -f 1`.`echo ${javaFileInWorkSpace%%.*}`
+
+			exeWithTimestampLog rm $javaFileInWorkSpace
 		fi
 
 	done
 
 	echo mainClassFile is $mainClassFile
 
-	exeWithTimestampLog java $mainClassFile
+	exeWithTimestampLog java -cp . $mainClassFile
+
+	if [[ ! -z $parentPkg ]]; then
+		exeWithTimestampLog rm -r $parentPkg
+	fi
 
 }
 
