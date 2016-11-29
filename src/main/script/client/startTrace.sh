@@ -1,6 +1,6 @@
 #!/bin/bash
 
-. /c/Users/Administrator/profile
+. /opt/dear/.profile
 
 usage()
 {
@@ -54,6 +54,10 @@ process()
 	#exeWithTimestampLog btrace $BTRACE_HOME/build -p $pid $btraceScript
 	#exeWithTimestampLog btrace -p $pid $btraceScript
 	#exeWithTimestampLog btrace -cp $BTRACE_HOME/build -p $pid $btraceScript
+
+	#classpath=`echo ${btraceScript%/*}`
+	
+	#exeWithTimestampLog btrace -cp $classpath $pid $btraceScript
 	exeWithTimestampLog btrace $pid $btraceScript
 }
 

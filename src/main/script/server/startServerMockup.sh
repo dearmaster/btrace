@@ -1,6 +1,6 @@
 #!/bin/bash
 
-. /c/Users/Administrator/profile
+. /opt/dear/.profile
 
 usage()
 {
