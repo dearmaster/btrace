@@ -1,7 +1,5 @@
 #!/bin/bash
 
-.  ~/.profile
-
 usage()
 {
 	cat << EOF
@@ -28,6 +26,22 @@ do
 			;;
 	esac
 done
+
+init() {
+	JAVA_HOME=/d/develop/Java/jdk1.8.0_66
+	PATH=$JAVA_HOME/bin:$PATH
+}
+
+function exeWithTimestampLog() {
+	timestamp=$(date +%Y-%m-%d' '%H:%M:%S)
+	echo "[$timestamp execution] $*"
+	eval $*
+}
+
+function error() {
+	timestamp=$(date +%Y-%m-%d' '%H:%M:%S)
+	echo "[$timestamp error] $*"
+}
 
 process()
 {
@@ -94,4 +108,5 @@ removeParentFolder()
 	fi
 }
 
+init
 process
